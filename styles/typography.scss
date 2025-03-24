@@ -1,0 +1,35 @@
+// Fraunces Bold and Montserrat
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@mixin display {
+    font-family: "Fraunces", serif;
+    font-size: 2rem;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 2rem;
+}
+
+@mixin body() {
+    font-family: "Montserrat", serif;
+    font-size: 0.875rem;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 1.5;
+}
+
+@mixin button-text {
+    font-weight: bold;
+    font-size: 0.875rem;
+    letter-spacing: 0px;
+    line-height: 1;
+}
+
+@mixin overline {
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    line-height: auto;
+    text-transform: uppercase;
+}
