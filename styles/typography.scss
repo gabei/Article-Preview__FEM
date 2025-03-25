@@ -8,6 +8,8 @@ $medium: 600;
 $bold: 800;
 
 body {
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
     line-height: 1.4;
     font-size: size.pixelToRem(13);
 }

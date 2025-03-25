@@ -10,6 +10,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: color.$grey-200;
 }
 
 .preview {
@@ -25,6 +26,27 @@ body {
     @include adjust.tablet {
         display: flex;
         width: 40rem;
+    }
+
+    &__title {
+        @include type.preset-1;
+    }
+
+    &__description {
+        @include type.preset-2;
+        color: color.$grey-500;
+    }
+
+    &__author {
+        &-name {
+            @include type.preset-2--bold;
+            color: color.$grey-900;
+        }
+
+        &-date {
+            @include type.preset-2;
+            color: color.$grey-400;
+        }
     }
 
     & > * {
