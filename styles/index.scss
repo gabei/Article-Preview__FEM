@@ -4,10 +4,6 @@
 @use './responsive.scss' as adjust;
 
 body {
-    @include type.body;
-    background-image: url("../images/background-image.jpg"), 
-    linear-gradient(color.$cream 50%,color.$cream 50%);
-    background-blend-mode: overlay;
     min-height: 100vh;
     padding: 1.5rem;
     display: flex;
@@ -61,57 +57,20 @@ body {
         }
     }
 
-    &__type {
-        @include type.overline;
-        color: color.$grey;
-    }
-
-    &__name {
-        @include type.display;
-        color: color.$gunmetal;
-    }
-
-    &__description {
-        color: color.$grey;
-    }
-
-    &__price {
-        @include type.display;
-        color: color.$aquamarine;
-        display: flex;
-        gap: 1rem;
-
-        &--original {
-            color: color.$grey;
-            font-size: 0.875rem;
-            font-weight: 400;
-            text-decoration: line-through;
-        }
-    }
-
     &__button {
-        @include type.button-text;
         padding: 1rem 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
-        background-color: color.$aquamarine;
         color: color.$white;
         border: none;
         border-radius: 0.5rem;
         cursor: pointer;
         transition: all 0.25s;
 
-        @include adjust.hoverable {
-            &:hover {
-                background-color: color.$aquamarine--deep;
-            }
-        }
-
         &:active {
             transition-duration: 0s;
-            background-color: color.$aquamarine--deep;
         }
     }
 }
@@ -137,114 +96,3 @@ body {
     }
 }
 
-.check-icon {
-    transform: translate(8rem, 0rem);
-    opacity: 0;
-}
-
-.check-slide {
-    animation-name: check-slide;
-    animation-timing-function:ease-in;
-    animation-duration: .3s;
-    animation-delay: 0.25s;
-    animation-fill-mode: forwards;
-
-    &--reverse {
-        animation-name: check-slide--reverse;
-        animation-timing-function:ease-in-out;
-        animation-duration: .3s;
-        animation-fill-mode: forwards;
-    }
-}
-
-.cart-slide {
-    animation-name: cart-slide;
-    animation-timing-function:ease-in-out;
-    animation-duration: .4s;
-    animation-fill-mode: forwards;
-
-    &--reverse {
-        animation-name: cart-slide--reverse;
-        animation-timing-function:ease-in;
-        animation-delay: 0.25s;
-        animation-duration: .3s;
-        animation-fill-mode: backwards;
-    }
-}
-
-.button-active{
-    background-color: color.$aquamarine--deep; 
-}
-
-
-@keyframes cart-slide {
-    0% {
-        transform: translate(0rem, 0rem) rotate(0deg);
-        opacity: 1;
-    }
-
-    20% {
-        transform: translate(0.4rem, 0rem) rotate(10deg) scaleX(-1);
-
-    }
-
-    30% {
-        transform: translate(0.4rem, 0rem) rotate(0deg) scaleX(-1);
-    }
-
-    100% {
-        transform: translate(-8rem, 0rem) rotate(0deg);
-        opacity: 0;
-    }
-}
-
-@keyframes cart-slide--reverse {
-    0% {
-        transform: translate(-8rem, 0rem) rotate(0deg);
-        opacity: 0;
-    }
-
-    70% {
-        
-        transform: translate(0.4rem, 0rem) rotate(10deg);
-    }
-
-    100% {
-        transform: translate(0rem, 0rem) rotate(0deg);
-        opacity: 1;
-    }
-}
-
-@keyframes check-slide {
-    0% {
-        transform: translate(8rem, 0rem);
-        opacity: 0;
-    }
-
-    75% {
-        transform: translate(-0.4rem, 0rem) rotate(-15deg);
-        opacity: 1; 
-    }
-
-    100% {
-        transform: translate(0rem, 0rem) rotate(0deg);
-        opacity: 1;
-    }
-}
-
-@keyframes check-slide--reverse {
-    0% {
-        transform: translate(0rem, 0rem);
-        opacity: 1;
-    }
-
-    25% {
-        transform: translate(-0.4rem, 0rem) rotate(-15deg);
-        opacity: 1; 
-    }
-
-    100% {
-        transform: translate(8rem, 0rem);
-        opacity: 0;
-    }
-}
