@@ -78,6 +78,13 @@ body {
 }
 .preview__author-share {
   grid-column: 5/span 1;
+  background: none;
+  border: none;
+}
+.preview__author-share img {
+  padding: 0.5rem;
+  background-color: #ECF2F8;
+  border-radius: 50%;
 }
 @media screen and (min-width: 680px) {
   .preview > * {
@@ -122,6 +129,18 @@ body {
 }
 .preview__button:active {
   transition-duration: 0s;
+}
+
+.share-menu {
+  background-color: #48556A;
+  color: #9DAEC2;
+  display: grid;
+  font-weight: 400;
+  letter-spacing: 0.12%;
+}
+
+.hide-menu {
+  display: none;
 }
 
 .attribution {

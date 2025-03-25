@@ -62,6 +62,15 @@ body {
 
         &-share {
             grid-column: 5 / span 1;
+            background: none;
+            border: none;
+            animation: all .25s;
+
+            img {
+                padding: 0.5rem;
+                background-color: color.$grey-200;
+                border-radius: 50%;
+            }
         }
     }
 
@@ -113,6 +122,28 @@ body {
     }
 }
 
+.share-menu {
+    background-color: color.$grey-900;
+    color: color.$grey-400;
+    display: grid;
+    
+    @include type.preset-3;
+}
+
+.fadeIn-menu {
+    animation: all .25s;
+    animation-name: fadeIn;
+}
+
+.fadeOut-menu {
+    animation: all .25s;
+    animation-name: fadeOut;
+}
+
+.hide-menu {
+    display: none;
+}
+
 
 .attribution { 
     font-size: 0.625rem; 
@@ -134,3 +165,24 @@ body {
     }
 }
 
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
