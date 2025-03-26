@@ -164,8 +164,12 @@ body {
 .fade-out {
     opacity: 0;
     visibility: hidden;
-
 }
+
+.no-display {
+    display: none;
+}
+
 .attribution { 
     font-size: 0.625rem; 
     text-align: center; 
