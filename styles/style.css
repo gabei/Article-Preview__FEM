@@ -111,6 +111,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative;
 }
 @media screen and (min-width: 680px) {
   .preview__content {
@@ -141,9 +142,14 @@ body {
   padding: 1.25rem;
   background-color: #48556A;
   color: #9DAEC2;
-  display: grid;
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 0.25s ease-in;
+  transition: opacity 0.2s ease-in;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0 0 1rem 1rem;
   font-weight: 400;
   letter-spacing: 0.12%;
 }
@@ -164,13 +170,15 @@ body {
 }
 
 .fade-in {
-  visibility: visible;
-  opacity: 1;
+  animation-name: fadeIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
 }
 
 .fade-out {
-  opacity: 0;
-  visibility: hidden;
+  animation-name: fadeOut;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
 }
 
 .attribution {
@@ -192,6 +200,27 @@ body {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@keyframes fadeIn {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

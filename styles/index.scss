@@ -99,6 +99,7 @@ body {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        position: relative;
 
         @include adjust.tablet {
             display: flex;
@@ -131,9 +132,15 @@ body {
     padding: 1.25rem;
     background-color: color.$grey-900;
     color: color.$grey-400;
-    display: grid;
+    visibility: hidden;
     opacity: 0;
-    transition: opacity .25s ease-in;
+    transition: opacity .2s ease-in;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 1rem 1rem;
+
     @include type.preset-3;
 
     & p {
@@ -157,17 +164,15 @@ body {
 }
 
 .fade-in {
-    visibility: visible;
-    opacity: 1;
+    animation-name: fadeIn;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
 }
 
 .fade-out {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.no-display {
-    display: none;
+    animation-name: fadeOut;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
 }
 
 .attribution { 
@@ -187,5 +192,30 @@ body {
     
     & a {
         color: hsl(228, 45%, 44%);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
     }
 }
