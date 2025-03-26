@@ -57,8 +57,10 @@ body {
 }
 .preview__author {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
+  opacity: 1;
+  transition: opacity 0.25s ease-in;
 }
 .preview__author > img {
   width: 3rem;
@@ -80,6 +82,7 @@ body {
   grid-column: 5/span 1;
   background: none;
   border: none;
+  animation: all 0.25s;
 }
 .preview__author-share img {
   padding: 0.5rem;
@@ -132,15 +135,42 @@ body {
 }
 
 .share-menu {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  padding: 1.25rem;
   background-color: #48556A;
   color: #9DAEC2;
   display: grid;
+  opacity: 0;
+  transition: opacity 0.25s ease-in;
   font-weight: 400;
   letter-spacing: 0.12%;
 }
+.share-menu p {
+  grid-column: 1/span 1;
+}
+.share-menu__icons {
+  grid-column: 2/span 3;
+  display: flex;
+  gap: 1rem;
+}
+.share-menu__icons > img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.share-menu button {
+  grid-column: 5/span 1;
+}
 
-.hide-menu {
-  display: none;
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .attribution {

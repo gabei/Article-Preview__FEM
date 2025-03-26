@@ -40,8 +40,10 @@ body {
 
     &__author {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(5, 1fr);
         align-items: center;
+        opacity: 1;
+        transition: opacity .25s ease-in;
 
         > img {
             width: 3rem;
@@ -123,28 +125,47 @@ body {
 }
 
 .share-menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    padding: 1.25rem;
     background-color: color.$grey-900;
     color: color.$grey-400;
     display: grid;
-    
+    opacity: 0;
+    transition: opacity .25s ease-in;
     @include type.preset-3;
+
+    & p {
+        grid-column: 1 / span 1;
+    }
+
+    &__icons {
+        grid-column: 2 / span 3;
+        display: flex;
+        gap: 1rem;
+
+        > img {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    }
+
+    & button {
+        grid-column: 5 / span 1;
+    }
 }
 
-.fadeIn-menu {
-    animation: all .25s;
-    animation-name: fadeIn;
+.fade-in {
+    visibility: visible;
+    opacity: 1;
 }
 
-.fadeOut-menu {
-    animation: all .25s;
-    animation-name: fadeOut;
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+
 }
-
-.hide-menu {
-    display: none;
-}
-
-
 .attribution { 
     font-size: 0.625rem; 
     text-align: center; 
@@ -162,27 +183,5 @@ body {
     
     & a {
         color: hsl(228, 45%, 44%);
-    }
-}
-
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
     }
 }
