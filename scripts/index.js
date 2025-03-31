@@ -26,11 +26,21 @@ exitshareArticle.addEventListener('click', fadeOutShareMenu);
 // }
 
 function fadeInshareMenu(){
+  setTimeout(() => {
+    exitshareArticle.disabled = false;
+  },500);
+
+  shareButton.disabled = true;
   previewAuthor.classList.add("no-display");
   shareMenu.classList.remove("no-display");
 }
 
 function fadeOutShareMenu(){
+  setTimeout(() => {
+    shareButton.disabled = false;
+  },500);
+
+  exitshareArticle.disabled = true;
   shareMenu.classList.add("no-display");
   previewAuthor.classList.remove("no-display");
 }
