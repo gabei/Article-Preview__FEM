@@ -98,14 +98,17 @@ body {
 }
 .preview__author-share {
   grid-column: 5/span 1;
-  background: none;
-  border: none;
-  animation: all 0.25s;
-}
-.preview__author-share img {
-  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
   background-color: #ECF2F8;
   border-radius: 50%;
+  border: none;
+}
+.preview__author-share:hover {
+  cursor: pointer;
+}
+.preview__author-share svg > path {
+  fill: #6E8098;
 }
 @media screen and (min-width: 680px) {
   .preview > * {
@@ -166,9 +169,10 @@ body {
 }
 .share-menu button {
   grid-column: 5/span 1;
-}
-.share-menu button img {
   background-color: #6E8098;
+}
+.share-menu button svg > path {
+  fill: #FFFFFF;
 }
 
 .no-display {
