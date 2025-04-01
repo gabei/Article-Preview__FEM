@@ -50,7 +50,9 @@ body {
   position: relative;
 }
 .preview__content-text {
-  padding: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 .preview__content-text h1 {
   font-weight: 800;
@@ -73,27 +75,26 @@ body {
 .preview__author {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-  padding: 1.25rem;
   align-items: center;
-  opacity: 1;
-  transition: opacity 0.25s ease-in;
+  padding: 1.25rem;
+  gap: 1rem;
 }
 .preview__author > img {
+  grid-column: 1/span 1;
   width: 40px;
   border-radius: 50%;
 }
 .preview__author-name {
+  grid-column: 2/span 3;
+  color: #48556A;
   font-weight: 800;
   letter-spacing: 0.12%;
-  color: #48556A;
-  grid-column: 2/span 3;
 }
 .preview__author-date {
   display: block;
+  color: #9DAEC2;
   font-weight: 600;
   letter-spacing: 0.12%;
-  color: #9DAEC2;
 }
 .preview__author-share {
   grid-column: 5/span 1;
@@ -133,17 +134,13 @@ body {
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: all 0.25s;
-}
-.preview__button:active {
-  transition-duration: 0s;
 }
 
 .share-menu {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  padding: 1.25rem;
+  padding: 1.5rem;
   gap: 1rem;
   background-color: #48556A;
   color: #9DAEC2;
