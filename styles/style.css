@@ -157,7 +157,10 @@ body {
   display: flex;
   gap: 1rem;
 }
-.share-menu__icons > img {
+.share-menu__icons a:hover {
+  cursor: pointer;
+}
+.share-menu__icons img {
   width: 1.25rem;
   height: 1.25rem;
 }
