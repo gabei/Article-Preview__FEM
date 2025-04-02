@@ -39,7 +39,8 @@ body {
 }
 @media screen and (min-width: 680px) {
   .preview {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     width: 40rem;
   }
 }
@@ -70,6 +71,7 @@ body {
   .preview__content {
     display: flex;
     justify-content: space-around;
+    grid-column: 3/span 3;
   }
 }
 .preview__author {
@@ -125,6 +127,13 @@ body {
   .preview__image {
     border-top-right-radius: 0rem;
     border-bottom-left-radius: 0.625rem;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 680px) {
+  .preview picture {
+    grid-column: 1/span 2;
   }
 }
 .preview__button {

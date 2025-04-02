@@ -24,7 +24,8 @@ body {
     }
 
     @include adjust.tablet {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
         width: 40rem;
     }
 
@@ -52,6 +53,7 @@ body {
         @include adjust.tablet {
             display: flex;
             justify-content: space-around;
+            grid-column: 3 / span 3;
         }
     }
 
@@ -113,7 +115,16 @@ body {
         @include adjust.tablet {
             border-top-right-radius: 0rem;
             border-bottom-left-radius: 0.625rem;
+            height: 100%;
+            object-fit: cover;
         }
+    }
+
+    & picture {
+        @include adjust.tablet {
+            grid-column: 1 / span 2;
+        }
+        
     }
 
     &__button {
