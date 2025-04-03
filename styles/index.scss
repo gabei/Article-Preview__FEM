@@ -150,6 +150,25 @@ body {
     color: color.$grey-400;
     border-radius: 0 0 1rem 1rem;
 
+    @include adjust.tablet {
+        position: absolute;
+        right: -3rem;
+        bottom: 4rem;
+        display: flex;
+        justify-content: space-evenly;
+        border-radius: 1rem;
+
+        &:after {
+            content: "";
+            width: 2rem;
+            height: 2rem;
+            background-color: inherit;
+            position: absolute;
+            bottom: -1rem;
+            transform: rotate(45deg);
+        }
+    }
+
     & p {
         grid-column: 1 / span 1;
         @include type.preset-3;
@@ -159,6 +178,10 @@ body {
         grid-column: 2 / span 3;
         display: flex;
         gap: 1rem;
+
+        a {
+            display: inherit;
+        }
 
         a:hover {
             cursor: pointer;
@@ -180,8 +203,18 @@ body {
     }
 }
 
+.share-article-exit {
+    @include adjust.tablet {
+        display: none;
+    }
+}
+
 .no-display {
     display: none;
+
+    @include adjust.tablet {
+        
+    }
 }
 
 .fade-in {

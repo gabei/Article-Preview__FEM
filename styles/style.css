@@ -158,6 +158,25 @@ body {
   color: #9DAEC2;
   border-radius: 0 0 1rem 1rem;
 }
+@media screen and (min-width: 680px) {
+  .share-menu {
+    position: absolute;
+    right: -3rem;
+    bottom: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 1rem;
+  }
+  .share-menu:after {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    background-color: inherit;
+    position: absolute;
+    bottom: -1rem;
+    transform: rotate(45deg);
+  }
+}
 .share-menu p {
   grid-column: 1/span 1;
   font-weight: 400;
@@ -168,6 +187,9 @@ body {
   grid-column: 2/span 3;
   display: flex;
   gap: 1rem;
+}
+.share-menu__icons a {
+  display: inherit;
 }
 .share-menu__icons a:hover {
   cursor: pointer;
@@ -184,10 +206,15 @@ body {
   fill: #FFFFFF;
 }
 
+@media screen and (min-width: 680px) {
+  .share-article-exit {
+    display: none;
+  }
+}
+
 .no-display {
   display: none;
 }
-
 .fade-in {
   animation-name: fadeIn;
   animation-duration: 0.2s;
