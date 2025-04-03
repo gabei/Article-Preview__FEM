@@ -41,7 +41,6 @@ function screenIsTabletSize(){
 function addTemporaryClickListener(){
   document.addEventListener('click', (e)=> {
     if(e.target !== shareMenu){
-      console.log("closing share menu");
       fadeOutShareMenu();
     }
   }, {once: true})
