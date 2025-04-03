@@ -14,14 +14,13 @@ exitshareArticle.addEventListener('click', fadeOutShareMenu);
 function fadeInshareMenu(){
   setTimeout(() => {
     exitshareArticle.disabled = false;
+    addTemporaryClickListener();
   },500);
 
-  const screenWidth = window.innerWidth;
-
-  if (screenWidth < 680){
+  if (window.innerWidth < 680){
     previewAuthor.classList.add("no-display");
   }
-  
+
   shareButton.disabled = true;
   shareMenu.classList.remove("no-display");
 }
