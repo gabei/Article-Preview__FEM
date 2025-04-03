@@ -4,7 +4,6 @@ const shareButton = document.querySelector(".share-article");
 const previewAuthor = document.querySelector(".preview__author");
 const shareMenu = document.querySelector(".share-menu");
 const exitshareArticle = document.querySelector(".share-article-exit");
-
 const cssAnimationTime = 250;
 
 
@@ -17,8 +16,13 @@ function fadeInshareMenu(){
     exitshareArticle.disabled = false;
   },500);
 
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 680){
+    previewAuthor.classList.add("no-display");
+  }
+  
   shareButton.disabled = true;
-  if(!screenIsTabletSize()) previewAuthor.classList.add("no-display");
   shareMenu.classList.remove("no-display");
 }
 
@@ -33,7 +37,20 @@ function fadeOutShareMenu(){
 }
 
 function screenIsTabletSize(){
-  console.log("Checking screenw width");
-  console.log(window.screen.width >= 680);
   return window.screen.width >= 680;
+}
+
+function checkIfShareMenuIsOpen(){
+  shareMenuIsOpen = !shareMenu.classList.contains('no-display');
+  if(shareMenuIsOpen) addTemporaryClickListener();
+  return shareMenuIsOpen;
+}
+
+function addTemporaryClickListener(){
+  document.addEventListener('click', (e)=> {
+    if(e.target !== shareMenu){
+      console.log("closing share menu");
+      fadeOutShareMenu();
+    }
+  }, {once: true})
 }
