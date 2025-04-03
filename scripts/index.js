@@ -1,10 +1,7 @@
-console.log("Script loaded!");
-
 const shareButton = document.querySelector(".share-article");
 const previewAuthor = document.querySelector(".preview__author");
 const shareMenu = document.querySelector(".share-menu");
 const exitshareArticle = document.querySelector(".share-article-exit");
-
 const cssAnimationTime = 250;
 
 
@@ -13,12 +10,17 @@ exitshareArticle.addEventListener('click', fadeOutShareMenu);
 
 
 function fadeInshareMenu(){
+  // delay to prevent double clicking 
   setTimeout(() => {
     exitshareArticle.disabled = false;
+    addTemporaryClickListener();
   },500);
 
+  if (window.innerWidth < 680){
+    previewAuthor.classList.add("no-display");
+  }
+
   shareButton.disabled = true;
-  if(!screenIsTabletSize()) previewAuthor.classList.add("no-display");
   shareMenu.classList.remove("no-display");
 }
 
@@ -33,7 +35,13 @@ function fadeOutShareMenu(){
 }
 
 function screenIsTabletSize(){
-  console.log("Checking screenw width");
-  console.log(window.screen.width >= 680);
   return window.screen.width >= 680;
+}
+
+function addTemporaryClickListener(){
+  document.addEventListener('click', (e)=> {
+    if(e.target !== shareMenu){
+      fadeOutShareMenu();
+    }
+  }, {once: true})
 }
