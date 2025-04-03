@@ -162,7 +162,7 @@ body {
   .share-menu {
     position: absolute;
     right: -3rem;
-    bottom: 4rem;
+    bottom: 5rem;
     display: flex;
     justify-content: space-evenly;
     border-radius: 1rem;
