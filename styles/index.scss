@@ -24,54 +24,78 @@ body {
     }
 
     @include adjust.tablet {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
         width: 40rem;
     }
 
-    &__title {
-        @include type.preset-1;
-        color: color.$grey-900;
-    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
 
-    &__description {
-        @include type.preset-2;
-        color: color.$grey-500;
+        &-text {
+            display: grid;
+            gap: 1.5rem;
+            padding: 1.5rem 1.5rem 0 1.5rem;
+            & h1{
+                @include type.preset-1;
+                color: color.$grey-900;
+            }
+        
+            & p {
+                @include type.preset-2;
+                color: color.$grey-500;
+            }
+        }
+
+        @include adjust.tablet {
+            display: flex;
+            justify-content: space-around;
+            grid-column: 3 / span 3;
+        }
     }
 
     &__author {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         align-items: center;
-        opacity: 1;
-        transition: opacity .25s ease-in;
+        padding: 1.25rem;
+        gap: 1rem;
 
         > img {
-            width: 3rem;
+            grid-column: 1 / span 1;
+            width: 40px;
             border-radius: 50%;
         }
 
         &-name {
-            @include type.preset-2--bold;
-            color: color.$grey-900;
             grid-column: 2 / span 3;
+            color: color.$grey-900;
+            @include type.preset-2--bold;
         }
 
         &-date {
             display:block;
-            @include type.preset-2;
             color: color.$grey-400;
+            @include type.preset-2;
         }
 
         &-share {
             grid-column: 5 / span 1;
-            background: none;
+            width: 2rem;
+            height: 2rem;
+            background-color: color.$grey-200;
+            border-radius: 50%;
             border: none;
-            animation: all .25s;
 
-            img {
-                padding: 0.5rem;
-                background-color: color.$grey-200;
-                border-radius: 50%;
+            &:hover {
+                cursor: pointer;
+            }
+
+            svg > path {
+                fill: color.$grey-500;
             }
         }
     }
@@ -91,20 +115,16 @@ body {
         @include adjust.tablet {
             border-top-right-radius: 0rem;
             border-bottom-left-radius: 0.625rem;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
-    &__content {
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        position: relative;
-
+    & picture {
         @include adjust.tablet {
-            display: flex;
-            justify-content: space-around;
+            grid-column: 1 / span 2;
         }
+        
     }
 
     &__button {
@@ -117,11 +137,6 @@ body {
         border: none;
         border-radius: 0.5rem;
         cursor: pointer;
-        transition: all 0.25s;
-
-        &:active {
-            transition-duration: 0s;
-        }
     }
 }
 
@@ -129,20 +144,30 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     align-items: center;
-    padding: 1.25rem;
+    padding: 1.5rem;
     gap: 1rem;
     background-color: color.$grey-900;
     color: color.$grey-400;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .2s ease-in;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     border-radius: 0 0 1rem 1rem;
 
-    
+    @include adjust.tablet {
+        position: absolute;
+        right: -3rem;
+        bottom: 5rem;
+        display: flex;
+        justify-content: space-evenly;
+        border-radius: 1rem;
+
+        &:after {
+            content: "";
+            width: 2rem;
+            height: 2rem;
+            background-color: inherit;
+            position: absolute;
+            bottom: -1rem;
+            transform: rotate(45deg);
+        }
+    }
 
     & p {
         grid-column: 1 / span 1;
@@ -154,7 +179,15 @@ body {
         display: flex;
         gap: 1rem;
 
-        > img {
+        a {
+            display: inherit;
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        img {
             width: 1.25rem;
             height: 1.25rem;
         }
@@ -162,10 +195,25 @@ body {
 
     & button {
         grid-column: 5 / span 1;
+        background-color: color.$grey-500;
         
-        & img {
-            background-color: color.$grey-500;
+        & svg > path {
+            fill: color.$white;
         }
+    }
+}
+
+.share-article-exit {
+    @include adjust.tablet {
+        display: none;
+    }
+}
+
+.no-display {
+    display: none;
+
+    @include adjust.tablet {
+        
     }
 }
 

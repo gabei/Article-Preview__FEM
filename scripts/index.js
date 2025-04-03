@@ -13,11 +13,27 @@ exitshareArticle.addEventListener('click', fadeOutShareMenu);
 
 
 function fadeInshareMenu(){
-  shareMenu.classList.remove("fade-out");
-  shareMenu.classList.add("fade-in");
+  setTimeout(() => {
+    exitshareArticle.disabled = false;
+  },500);
+
+  shareButton.disabled = true;
+  if(!screenIsTabletSize()) previewAuthor.classList.add("no-display");
+  shareMenu.classList.remove("no-display");
 }
 
 function fadeOutShareMenu(){
-  shareMenu.classList.remove("fade-in");
-  shareMenu.classList.add("fade-out");
+  setTimeout(() => {
+    shareButton.disabled = false;
+  },500);
+
+  exitshareArticle.disabled = true;
+  shareMenu.classList.add("no-display");
+  previewAuthor.classList.remove("no-display");
+}
+
+function screenIsTabletSize(){
+  console.log("Checking screenw width");
+  console.log(window.screen.width >= 680);
+  return window.screen.width >= 680;
 }
