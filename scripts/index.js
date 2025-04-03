@@ -1,5 +1,3 @@
-console.log("Script loaded!");
-
 const shareButton = document.querySelector(".share-article");
 const previewAuthor = document.querySelector(".preview__author");
 const shareMenu = document.querySelector(".share-menu");
@@ -12,6 +10,7 @@ exitshareArticle.addEventListener('click', fadeOutShareMenu);
 
 
 function fadeInshareMenu(){
+  // delay to prevent double clicking 
   setTimeout(() => {
     exitshareArticle.disabled = false;
     addTemporaryClickListener();
@@ -37,12 +36,6 @@ function fadeOutShareMenu(){
 
 function screenIsTabletSize(){
   return window.screen.width >= 680;
-}
-
-function checkIfShareMenuIsOpen(){
-  shareMenuIsOpen = !shareMenu.classList.contains('no-display');
-  if(shareMenuIsOpen) addTemporaryClickListener();
-  return shareMenuIsOpen;
 }
 
 function addTemporaryClickListener(){
